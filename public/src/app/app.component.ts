@@ -10,17 +10,21 @@ import { HttpService } from './http.service';
 export class AppComponent implements OnInit {
   title = 'Ninja Gold';
   users = {};
-  money = 0;
+  money:number = 0;
   options = [{ name: "farm", gold: [2, 5] },
   { name: "cave", gold: [5, 10] },
   { name: "house", gold: [7, 15] },
   { name: "casino", gold: [-100, 100] }];
   log = [];
+  user = "";
 
   constructor(private _http: HttpService) { }
   ngOnInit() {
     this._http.getUsers().subscribe(data => this.users = data);
-    console.log(this.options);
+    var userPrompt = prompt();
+    this.user = userPrompt;
+    this.getMoney(this.user);
+
   }
   pickSelection(choice: any) {
     if (choice.gold[0] < 0) {
@@ -49,6 +53,19 @@ export class AppComponent implements OnInit {
     }
   }
   save() {
-    
+    this._http.saveUser(this.user, this.money);
+  }
+  getMoney(name){
+    let usertemp = this._http.getUser(name);
+    usertemp.subscribe(data => {
+    if (data["data"].length > 0) {
+      this.money = data["data"][0].points; 
+      //this.money = ;
+      //console.log(parseInt(data["data"].points));
+    }
+    else {
+      this.money = 0;
+    }
+  })
   }
 }

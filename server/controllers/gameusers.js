@@ -17,4 +17,24 @@ module.exports = {
             }
         });
     },
+    getone: function (req, res) {
+        gm.find({ name: req.params.name }, function (err, data) {
+            if (err) {
+                res.json({ "message": "Error" });
+            }
+            else {
+                res.json({ "message": "Success", data: data });
+            }
+        });
+    },
+    update: function (req, res) {
+        gm.updateOne({ name: req.params.name }, req.body, function (err, data) {
+            if (err) {
+                res.json({ "message": "Error" });
+            }
+            else {
+                res.json({ "message": "Success", data: data });
+            }
+        });
+    }
 }

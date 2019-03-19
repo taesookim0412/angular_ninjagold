@@ -27,7 +27,7 @@
     <p *ngFor="let log of log">{{log}}</p>
   </div>
 
-  <div id="save">Save</div>
+  <div (click)="save()" id="save">Save</div>
 
 
   <router-outlet></router-outlet>
