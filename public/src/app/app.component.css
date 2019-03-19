@@ -1,0 +1,43 @@
+#wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    height: 475px;
+    width: 1200px;
+    margin: 0px auto;
+}
+
+.minibox {
+    height: 400px;
+    width: 250px;
+    border: 3px solid black;
+}
+
+.innerbox {
+    box-sizing: border-box;
+    padding-top: 40px;
+    height: 100px;
+    width: 200px;
+    border: 3px solid black;
+    margin: 0px auto;
+    margin-top: 150px;
+}
+
+#advlog {
+    display: inline-block;
+    margin: 0px auto;
+    height: 350px;
+    width: 900px;
+    border: 3px solid black;
+}
+
+#save {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 45px;
+    padding-top: 55px;
+    height: 150px;
+    width: 150px;
+    border: 3px solid black;
+    
+}

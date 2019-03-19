@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <h1>Total Gold: {{money}}</h1>
+  <!-- <div id="wrapper">
+  <div class="minibox"><h3>Farm</h3>
+    <div class="innerbox"></div></div>
+  <div class="minibox"><h3>Cave</h3>
+    <div class="innerbox"></div></div>
+  <div class="minibox"><h3>House</h3>
+    <div class="innerbox"></div></div>
+  <div class="minibox"><h3>Casino</h3>
+    <div class="innerbox"></div></div>
+  
+</div> -->
+  <div id="wrapper">
+      <div *ngFor="let option of options" class="minibox">
+        <h3>{{ option.name }}</h3>
+        Earns {{option.gold[0] }} - {{option.gold[1]}} gold
+        <div class="innerbox" (click)="pickSelection(option)"  >{{option.name}}!</div>
+      </div>
+  </div>
+  <div id="advlog">
+    Adventure log:
+    <p *ngFor="let log of log">{{log}}</p>
+  </div>
+
+  <div id="save">Save</div>
+
+
+  <router-outlet></router-outlet>
